@@ -12,7 +12,9 @@
     </Window.Background>
     <!-- GRID TEST -->
     <Grid x:Name="Board_grid" Height="400" Width="400"
-          HorizontalAlignment="Center" VerticalAlignment="Center"
-          Background="White">
+          HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/reversi_board.png"/>
+        </Grid.Background>
     </Grid>
 </Window>

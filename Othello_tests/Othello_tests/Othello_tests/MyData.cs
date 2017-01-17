@@ -10,7 +10,7 @@ namespace Othello_tests
     public class MyData
     {
 
-        //attributes
+        //ATTRIBUTES
         public BoardState[,] StateArray
         {
             get;
@@ -28,9 +28,9 @@ namespace Othello_tests
         //inside method : fill array
         private void FillArray()
         {
-            //
             Random random = new Random();
-            //
+            
+            // random filling
             for (int row = 0; row < 8; row++)
             {
                 for (int column = 0; column < 8; column++)
@@ -48,7 +48,7 @@ namespace Othello_tests
             }
         }
 
-        //inside method : print result
+        //inside method : print result (debug)
         private void MyPrint()
         {
             for (int row = 0; row < 8; row++)

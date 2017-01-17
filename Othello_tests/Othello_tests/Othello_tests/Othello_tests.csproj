@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="DiscView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,6 +68,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiscView.xaml.cs">
+      <DependentUpon>DiscView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyData.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -100,13 +107,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\black.png">
+    <Resource Include="Resources\black.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Resource>
     <Resource Include="Resources\reversi_board.png" />
-    <EmbeddedResource Include="Resources\white.png">
+    <Resource Include="Resources\white.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Resource>
     <Resource Include="Resources\wooden_back.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
