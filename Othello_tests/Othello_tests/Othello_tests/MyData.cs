@@ -22,7 +22,6 @@ namespace Othello_tests
         {
             StateArray = new BoardState[8, 8];
             FillArray();
-            MyPrint();
         }
 
         //inside method : fill array
@@ -47,18 +46,5 @@ namespace Othello_tests
                 }
             }
         }
-
-        //inside method : print result (debug)
-        private void MyPrint()
-        {
-            for (int row = 0; row < 8; row++)
-            {
-                for (int column = 0; column < 8; column++)
-                {
-                    Console.WriteLine("{0} {1} : {2} ", row, column, StateArray[row, column]);
-                }
-            }
-        }
-
     }
 }
