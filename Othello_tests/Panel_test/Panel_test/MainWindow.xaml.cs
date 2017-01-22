@@ -32,6 +32,8 @@ namespace Panel_test
             InitializeComponent();
             currentGameState = GameState.INIT;
             InitializePanel();
+            black_label.DataContext = data;
+            white_label.DataContext = data;
             Console.WriteLine("INFORMATION : panel initialization");
         }
 
@@ -40,7 +42,7 @@ namespace Panel_test
         public void InitializePanel()
         {
             data = new GameData();
-            int j = data.total_black;
+            int j = data.TotalBlack;
 
             for (int i = 0; i < j; i++)
             {
@@ -64,35 +66,53 @@ namespace Panel_test
             if (currentGameState == GameState.INIT)
                 currentGameState = GameState.BLACK_TURN;
             
-            else if (data.total_white != 0 && currentGameState == GameState.BLACK_TURN)
+            else if (data.TotalWhite != 0 && currentGameState == GameState.BLACK_TURN)
             {
-                data.total_black--;
-                Remaining_wdiscs.Children.RemoveAt(data.total_black);
+                data.TotalBlack--;
+                Remaining_wdiscs.Children.RemoveAt(data.TotalBlack);
                 Console.WriteLine("next : white turn");
-                Console.WriteLine("total black : {0}", data.total_black);
+                Console.WriteLine("total black : {0}", data.TotalBlack);
 
                 currentGameState = GameState.WHITE_TURN;
             }
 
-            else if (data.total_white != 0 && currentGameState == GameState.WHITE_TURN)
+            else if (data.TotalWhite != 0 && currentGameState == GameState.WHITE_TURN)
             {
-                data.total_white--;
-                Remaining_bdiscs.Children.RemoveAt(data.total_white);
+                data.TotalWhite--;
+                Remaining_bdiscs.Children.RemoveAt(data.TotalWhite);
                 Console.WriteLine("next : black turn");
-                Console.WriteLine("total white : {0}", data.total_white);
+                Console.WriteLine("total white : {0}", data.TotalWhite);
 
                 currentGameState = GameState.BLACK_TURN;
             }
-            else if (data.total_white == 0 && data.total_black == 0)
+            else if (data.TotalWhite == 0 && data.TotalBlack == 0)
                 currentGameState = GameState.GAME_END;
         }
 
         private void Update_button_Click(object sender, RoutedEventArgs e)
         {
+            
             if (currentGameState != GameState.GAME_END)
+            {
+                if (currentGameState == GameState.WHITE_TURN)
+                {
+                    data.StopTimer(GameState.BLACK_TURN);
+                    data.StartTimer(GameState.WHITE_TURN);
+                }
+                    
+                else if (currentGameState == GameState.BLACK_TURN)
+                {
+                    data.StopTimer(GameState.WHITE_TURN);
+                    data.StartTimer(GameState.BLACK_TURN);
+                }
+                    
                 UpdatePanel();
+            }
             else
-                Console.WriteLine("No more update allowed");
+            {
+                data.StopTimer(GameState.BLACK_TURN);
+                data.StopTimer(GameState.WHITE_TURN);
+            }
         }
     }
 }

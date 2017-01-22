@@ -7,17 +7,33 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="700">
     <Grid>
+        <!-- black timer -->
+        <Label x:Name="black_label" Content="{Binding BlackTimerStr}"
+               HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label.DataContext>
+                <local:GameData/>
+            </Label.DataContext>
+        </Label>
+        <!-- white timer -->
+        <Label x:Name="white_label" Content="{Binding WhiteTimerStr}"
+               HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Label.DataContext>
+                <local:GameData/>
+            </Label.DataContext>
+        </Label>
+        <!-- black -->
         <StackPanel x:Name="Remaining_bdiscs" Height="50" Width="300"
                     HorizontalAlignment="Left" VerticalAlignment="Stretch"
                     Orientation="Horizontal"
                     Background="Gray">
         </StackPanel>
-        
+        <!-- white -->
         <StackPanel x:Name="Remaining_wdiscs" Height="50" Width="300"
                     HorizontalAlignment="Right" VerticalAlignment="Stretch"
                     Orientation="Horizontal"
                     Background="LightGray">
         </StackPanel>
+        <!-- button -->
         <Button x:Name="Update_button" Height="50" Width="50"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Update"
                 Click="Update_button_Click">
