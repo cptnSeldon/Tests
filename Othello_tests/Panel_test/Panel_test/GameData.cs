@@ -36,8 +36,8 @@ namespace Panel_test
             TotalWhite = 5;
             //timers
             InitializeTimer();
-            BlackTimerStr = "00:00";
-            WhiteTimerStr = "00:00";
+            BlackTimerStr = "00:00:00";
+            WhiteTimerStr = "00:00:00";
         }
 
         //inside method : timers' initialization

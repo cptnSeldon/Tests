@@ -38,7 +38,6 @@ namespace Panel_test
         }
 
         //inside method : panel initialization
-        //TODO : rewrite 
         public void InitializePanel()
         {
             data = new GameData();

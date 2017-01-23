@@ -9,14 +9,14 @@
     <Grid>
         <!-- black timer -->
         <Label x:Name="black_label" Content="{Binding BlackTimerStr}"
-               HorizontalAlignment="Left" VerticalAlignment="Top">
+               HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Consolas" FontSize="20">
             <Label.DataContext>
                 <local:GameData/>
             </Label.DataContext>
         </Label>
         <!-- white timer -->
         <Label x:Name="white_label" Content="{Binding WhiteTimerStr}"
-               HorizontalAlignment="Right" VerticalAlignment="Top">
+               HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Consolas" FontSize="20">
             <Label.DataContext>
                 <local:GameData/>
             </Label.DataContext>
